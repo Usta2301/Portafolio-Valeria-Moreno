@@ -8,81 +8,103 @@ st.set_page_config(
 )
 
 APPS = [
-    {"nombre": "RAG — Chat con PDF", "desc": "Agente inteligente que analiza y responde preguntas sobre documentos PDF usando recuperación aumentada.", "url": "https://chatpdfsalorivero.streamlit.app", "emoji": "🤖", "color": "#D97706", "glow": "#F59E0B", "tag": "NLP · OpenAI"},
-    {"nombre": "Control por Voz", "desc": "Interfaces multimodales que transcriben comandos de voz en tiempo real usando reconocimiento automático.", "url": "https://ctrlvoicesrd.streamlit.app", "emoji": "🎙️", "color": "#B45309", "glow": "#D97706", "tag": "Audio · Speech"},
-    {"nombre": "Tablero Inteligente", "desc": "Dibuja un boceto en el panel y la IA lo interpreta, genera descripciones e historias sobre el dibujo.", "url": "https://drawrecogsrd.streamlit.app", "emoji": "🎨", "color": "#EAB308", "glow": "#FACC15", "tag": "Visión · GPT-4"},
-    {"nombre": "Reconocimiento de Dígitos", "desc": "Red neuronal artificial que reconoce dígitos escritos a mano dibujados directamente en el canvas.", "url": "https://handwsrd.streamlit.app", "emoji": "✍️", "color": "#CA8A04", "glow": "#EAB308", "tag": "RNA · MNIST"},
-    {"nombre": "¿Valen o Salo?", "desc": "Detector de gestos y reconocimiento facial que identifica si la persona en cámara es Valentina o Salomé.", "url": "https://detecgestossrd.streamlit.app", "emoji": "👁️", "color": "#F59E0B", "glow": "#FCD34D", "tag": "Visión · Face ID"},
-    {"nombre": "OCR + Audio", "desc": "Reconocimiento óptico de caracteres que extrae texto de imágenes con cámara o archivo y lo convierte a audio.", "url": "https://ocraudiord.streamlit.app", "emoji": "🔊", "color": "#D97706", "glow": "#F59E0B", "tag": "OCR · TTS"},
-    {"nombre": "Reconocimiento de Identidad", "desc": "OCR aplicado a documentos de identidad — extrae y organiza la información de cédulas colombianas.", "url": "https://ocrsalorivero.streamlit.app", "emoji": "🪪", "color": "#B45309", "glow": "#D97706", "tag": "OCR · Docs"},
-    {"nombre": "MQTT Control Dashboard", "desc": "Dashboard web para controlar dispositivos IoT en tiempo real mediante el protocolo MQTT.", "url": "https://sendcmqttsalorivero.streamlit.app", "emoji": "📡", "color": "#EAB308", "glow": "#FACC15", "tag": "IoT · MQTT"},
-    {"nombre": "Análisis de Sentimiento", "desc": "Analiza la polaridad y subjetividad de textos — determina si el sentimiento es positivo, negativo o neutro.", "url": "https://sentimentasalo.streamlit.app", "emoji": "😊", "color": "#CA8A04", "glow": "#EAB308", "tag": "NLP · TextBlob"},
-    {"nombre": "TF-IDF en Español", "desc": "Demo que compara documentos usando TF-IDF para encontrar el más relevante según una pregunta en español.", "url": "https://tdfespsrd.streamlit.app", "emoji": "🔍", "color": "#F59E0B", "glow": "#FCD34D", "tag": "NLP · TF-IDF"},
-    {"nombre": "Traductor por Voz", "desc": "Escucha lo que dices y traduce tu voz de forma automática entre múltiples idiomas al instante.", "url": "https://traductorvoazatextosrd.streamlit.app", "emoji": "🌐", "color": "#D97706", "glow": "#F59E0B", "tag": "Audio · Translate"},
-    {"nombre": "Análisis de Imagen", "desc": "Vision App que describe imágenes de forma inteligente usando modelos multimodales de OpenAI.", "url": "https://visionappsalorivero.streamlit.app", "emoji": "🖼️", "color": "#B45309", "glow": "#D97706", "tag": "GPT-4V · Vision"},
-    {"nombre": "Reconocimiento Óptico (OCR)", "desc": "Elige la fuente de imagen — cámara o archivo — y extrae el texto visible usando OCR con traducción.", "url": "https://ocraudiord.streamlit.app", "emoji": "📄", "color": "#EAB308", "glow": "#FACC15", "tag": "OCR · Camera"},
-    {"nombre": "TF-IDF en Inglés", "desc": "Versión en inglés del demo de búsqueda semántica con TF-IDF sobre documentos de texto libre.", "url": "https://salolamejor.streamlit.app", "emoji": "📊", "color": "#CA8A04", "glow": "#EAB308", "tag": "NLP · Search"},
-    {"nombre": "Word Cloud", "desc": "Genera nubes de palabras visuales a partir de cualquier texto, resaltando las palabras más frecuentes.", "url": "https://salolamejor.streamlit.app", "emoji": "☁️", "color": "#F59E0B", "glow": "#FCD34D", "tag": "Viz · NLP"},
+    {"nombre": "RAG — Chat con PDF", "desc": "Agente inteligente que analiza y responde preguntas sobre documentos PDF usando recuperacion aumentada.", "url": "https://chatpdfsalorivero.streamlit.app", "emoji": "🤖", "tag": "NLP · OpenAI"},
+    {"nombre": "Control por Voz", "desc": "Interfaces multimodales que transcriben comandos de voz en tiempo real usando reconocimiento automatico.", "url": "https://ctrlvoicesrd.streamlit.app", "emoji": "🎙️", "tag": "Audio · Speech"},
+    {"nombre": "Tablero Inteligente", "desc": "Dibuja un boceto en el panel y la IA lo interpreta, genera descripciones e historias sobre el dibujo.", "url": "https://drawrecogsrd.streamlit.app", "emoji": "🎨", "tag": "Vision · GPT-4"},
+    {"nombre": "Reconocimiento de Digitos", "desc": "Red neuronal artificial que reconoce digitos escritos a mano dibujados directamente en el canvas.", "url": "https://handwsrd.streamlit.app", "emoji": "✍️", "tag": "RNA · MNIST"},
+    {"nombre": "Valen o Salo?", "desc": "Detector de gestos y reconocimiento facial que identifica si la persona en camara es Valentina o Salome.", "url": "https://detecgestossrd.streamlit.app", "emoji": "👁️", "tag": "Vision · Face ID"},
+    {"nombre": "OCR + Audio", "desc": "Reconocimiento optico de caracteres que extrae texto de imagenes con camara o archivo y lo convierte a audio.", "url": "https://ocraudiord.streamlit.app", "emoji": "🔊", "tag": "OCR · TTS"},
+    {"nombre": "Reconocimiento de Identidad", "desc": "OCR aplicado a documentos de identidad, extrae y organiza la informacion de cedulas colombianas.", "url": "https://ocrsalorivero.streamlit.app", "emoji": "🪪", "tag": "OCR · Docs"},
+    {"nombre": "MQTT Control Dashboard", "desc": "Dashboard web para controlar dispositivos IoT en tiempo real mediante el protocolo MQTT.", "url": "https://sendcmqttsalorivero.streamlit.app", "emoji": "📡", "tag": "IoT · MQTT"},
+    {"nombre": "Analisis de Sentimiento", "desc": "Analiza la polaridad y subjetividad de textos, determina si el sentimiento es positivo, negativo o neutro.", "url": "https://sentimentasalo.streamlit.app", "emoji": "😊", "tag": "NLP · TextBlob"},
+    {"nombre": "TF-IDF en Espanol", "desc": "Demo que compara documentos usando TF-IDF para encontrar el mas relevante segun una pregunta en espanol.", "url": "https://tdfespsrd.streamlit.app", "emoji": "🔍", "tag": "NLP · TF-IDF"},
+    {"nombre": "Traductor por Voz", "desc": "Escucha lo que dices y traduce tu voz de forma automatica entre multiples idiomas al instante.", "url": "https://traductorvoazatextosrd.streamlit.app", "emoji": "🌐", "tag": "Audio · Translate"},
+    {"nombre": "Analisis de Imagen", "desc": "Vision App que describe imagenes de forma inteligente usando modelos multimodales de OpenAI.", "url": "https://visionappsalorivero.streamlit.app", "emoji": "🖼️", "tag": "GPT-4V · Vision"},
+    {"nombre": "Reconocimiento Optico OCR", "desc": "Elige la fuente de imagen, camara o archivo, y extrae el texto visible usando OCR con traduccion.", "url": "https://ocraudiord.streamlit.app", "emoji": "📄", "tag": "OCR · Camera"},
+    {"nombre": "TF-IDF en Ingles", "desc": "Version en ingles del demo de busqueda semantica con TF-IDF sobre documentos de texto libre.", "url": "https://salolamejor.streamlit.app", "emoji": "📊", "tag": "NLP · Search"},
+    {"nombre": "Word Cloud", "desc": "Genera nubes de palabras visuales a partir de cualquier texto, resaltando las palabras mas frecuentes.", "url": "https://salolamejor.streamlit.app", "emoji": "☁️", "tag": "Viz · NLP"},
 ]
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
-html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif; background-color: #0A0800; color: #f0f0f0; }
-.stApp { background: #0A0800; }
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif; background-color: #FFFBEB; color: #1C1917; }
+.stApp { background: #FFFBEB; }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0 !important; max-width: 100% !important; }
-.hero { text-align: center; padding: 3rem 1rem 2rem; }
-.hero-badge { display: inline-block; background: rgba(234,179,8,0.15); border: 1px solid rgba(234,179,8,0.4); color: #FACC15; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 99px; margin-bottom: 1.2rem; }
-.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin: 0; line-height: 1.05; background: linear-gradient(135deg, #fff 0%, #FACC15 50%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero-sub { font-size: 1.1rem; color: #9CA3AF; margin-top: 1rem; }
-.hero-stats { display: flex; justify-content: center; gap: 2.5rem; margin-top: 2rem; }
-.stat { text-align: center; }
-.stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: #FACC15; }
-.stat-label { font-size: 0.75rem; color: #6B7280; text-transform: uppercase; letter-spacing: 0.1em; }
-.divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(234,179,8,0.4), transparent); margin: 2rem auto; max-width: 600px; }
-.section-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: #6B7280; text-transform: uppercase; letter-spacing: 0.2em; text-align: center; margin-bottom: 2rem; }
-.card { background: #110F00; border: 1px solid rgba(234,179,8,0.1); border-radius: 16px; padding: 1.5rem; position: relative; overflow: hidden; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), border-color 0.3s, box-shadow 0.3s; }
-.card:hover { transform: translateY(-6px) scale(1.01); border-color: rgba(234,179,8,0.5); box-shadow: 0 0 35px -5px rgba(234,179,8,0.3); }
-.card-top-bar { height: 3px; border-radius: 99px; margin-bottom: 1.2rem; }
-.card-header { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
-.card-emoji { font-size: 2rem; line-height: 1; flex-shrink: 0; }
-.card-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; color: #fff; line-height: 1.2; margin: 0 0 0.3rem 0; }
-.card-tag { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #FACC15; background: rgba(234,179,8,0.1); border: 1px solid rgba(234,179,8,0.2); padding: 0.2rem 0.55rem; border-radius: 99px; }
-.card-desc { font-size: 0.875rem; color: #9CA3AF; line-height: 1.6; margin: 0.75rem 0 1.25rem; }
-.card-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; text-decoration: none !important; padding: 0.55rem 1.2rem; border-radius: 99px; color: #000 !important; transition: opacity 0.2s, transform 0.15s; }
-.card-btn:hover { opacity: 0.85; transform: scale(1.04); text-decoration: none !important; }
-.card-num { position: absolute; bottom: 1rem; right: 1.25rem; font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(234,179,8,0.05); line-height: 1; user-select: none; }
-.footer { text-align: center; padding: 2rem; color: #374151; font-size: 0.8rem; border-top: 1px solid rgba(234,179,8,0.08); margin-top: 2rem; }
+.hero-wrap { position: relative; background: linear-gradient(135deg, #1C1917 0%, #2C2520 60%, #1C1917 100%); padding: 4rem 2rem 5.5rem; overflow: hidden; text-align: center; }
+.hero-dots { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(rgba(251,191,36,0.13) 1.5px, transparent 1.5px); background-size: 30px 30px; pointer-events: none; }
+.hero-glow-left { position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(251,191,36,0.16) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
+.hero-glow-right { position: absolute; bottom: -120px; right: -80px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(234,179,8,0.13) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
+.hero-badge { display: inline-block; background: rgba(251,191,36,0.12); border: 1px solid rgba(251,191,36,0.45); color: #FCD34D; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.38rem 1.1rem; border-radius: 99px; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; margin: 0 0 0.6rem; line-height: 1; color: #fff; position: relative; z-index: 2; }
+.hero h1 .yellow { background: linear-gradient(90deg, #FBBF24 0%, #FDE68A 50%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: 1rem; color: #A8A29E; margin-top: 0.6rem; position: relative; z-index: 2; }
+.hero-stats { display: inline-flex; margin-top: 2.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; position: relative; z-index: 2; }
+.stat-box { padding: 1.1rem 2.2rem; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+.stat-box:last-child { border-right: none; }
+.stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: #FBBF24; display: block; line-height: 1; }
+.stat-label { font-size: 0.65rem; color: #78716C; text-transform: uppercase; letter-spacing: 0.14em; margin-top: 0.3rem; display: block; }
+.wave-divider { line-height: 0; background: #1C1917; }
+.wave-divider svg { display: block; width: 100%; }
+.section-wrap { background: #FFFBEB; padding: 3rem 1.5rem 4rem; position: relative; }
+.grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(251,191,36,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.07) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.25em; text-align: center; margin-bottom: 2.5rem; position: relative; z-index: 1; }
+.card { background: #fff; border: 1.5px solid #FEF3C7; border-radius: 20px; padding: 1.6rem; position: relative; overflow: hidden; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s, border-color 0.3s; height: 100%; }
+.card::after { content: ''; position: absolute; top: -50px; right: -50px; width: 140px; height: 140px; background: radial-gradient(circle, #FFFDE7 0%, transparent 70%); pointer-events: none; }
+.card:hover { transform: translateY(-8px) scale(1.018); box-shadow: 0 24px 55px -10px rgba(217,119,6,0.2); border-color: #FCD34D; }
+.card-accent { height: 4px; border-radius: 99px; background: linear-gradient(90deg, #FBBF24, #FDE68A, #F59E0B, #FBBF24); background-size: 200% 100%; animation: shimmer 3s linear infinite; margin-bottom: 1.3rem; }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.card-header { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.6rem; }
+.card-emoji { font-size: 2.2rem; line-height: 1; flex-shrink: 0; }
+.card-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: #1C1917; margin: 0 0 0.35rem; line-height: 1.2; }
+.card-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #92400E; background: #FEF3C7; border: 1px solid #FDE68A; padding: 0.18rem 0.6rem; border-radius: 99px; }
+.card-desc { font-size: 0.845rem; color: #78716C; line-height: 1.65; margin: 0.8rem 0 1.4rem; }
+.card-btn { display: inline-flex; align-items: center; gap: 0.45rem; background: #1C1917; color: #FBBF24 !important; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 700; text-decoration: none !important; padding: 0.52rem 1.2rem; border-radius: 99px; transition: background 0.2s, transform 0.15s; }
+.card-btn:hover { background: #292524; transform: scale(1.05); color: #FCD34D !important; text-decoration: none !important; }
+.card-num { position: absolute; bottom: 0.6rem; right: 1rem; font-family: 'Syne', sans-serif; font-size: 3.2rem; font-weight: 800; color: rgba(251,191,36,0.07); line-height: 1; user-select: none; }
+.footer-wrap { background: #1C1917; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.footer-line { height: 3px; background: linear-gradient(90deg, transparent 0%, #FBBF24 30%, #FDE68A 50%, #FBBF24 70%, transparent 100%); margin-bottom: 1.5rem; }
+.footer-text { color: #57534E; font-size: 0.82rem; margin: 0; }
+.footer-name { color: #FBBF24; font-weight: 700; }
+[data-testid="column"] { padding: 0.45rem !important; }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<div class="hero">
-    <div class="hero-badge">✦ Portafolio Académico · IA & Machine Learning</div>
-    <h1>Valeria Moreno</h1>
+<div class="hero-wrap">
+    <div class="hero-dots"></div>
+    <div class="hero-glow-left"></div>
+    <div class="hero-glow-right"></div>
+    <div class="hero-badge">&#10022; Portafolio Academico &nbsp;&middot;&nbsp; IA &amp; Machine Learning</div>
+    <h1>Valeria <span class="yellow">Moreno</span></h1>
     <p class="hero-sub">Aplicaciones construidas con Python, Streamlit y modelos de inteligencia artificial</p>
     <div class="hero-stats">
-        <div class="stat"><div class="stat-num">15</div><div class="stat-label">Proyectos</div></div>
-        <div class="stat"><div class="stat-num">5</div><div class="stat-label">Tecnologías</div></div>
-        <div class="stat"><div class="stat-num">1</div><div class="stat-label">Semestre</div></div>
+        <div class="stat-box"><span class="stat-num">15</span><span class="stat-label">Proyectos</span></div>
+        <div class="stat-box"><span class="stat-num">5</span><span class="stat-label">Tecnologias</span></div>
+        <div class="stat-box"><span class="stat-num">1</span><span class="stat-label">Semestre</span></div>
     </div>
 </div>
-<div class="divider"></div>
-<p class="section-title">✦ Selecciona un proyecto ✦</p>
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,50 C200,90 400,10 600,50 C800,90 1000,10 1200,50 C1320,75 1390,30 1440,50 L1440,80 L0,80 Z" fill="#FFFBEB"/>
+  </svg>
+</div>
 """, unsafe_allow_html=True)
+
+st.markdown('<div class="section-wrap"><div class="grid-bg"></div><p class="section-title">&#10022; &nbsp; Explora los proyectos &nbsp; &#10022;</p>', unsafe_allow_html=True)
 
 cols_per_row = 3
 rows = [APPS[i:i+cols_per_row] for i in range(0, len(APPS), cols_per_row)]
 
 for row_idx, row in enumerate(rows):
-    cols = st.columns(cols_per_row, gap="medium")
+    cols = st.columns(cols_per_row, gap="small")
     for col_idx, (col, app) in enumerate(zip(cols, row)):
         num = row_idx * cols_per_row + col_idx + 1
         with col:
             st.markdown(f"""
 <div class="card">
-    <div class="card-top-bar" style="background:{app['color']};"></div>
+    <div class="card-accent"></div>
     <div class="card-header">
         <div class="card-emoji">{app['emoji']}</div>
         <div>
@@ -91,11 +113,16 @@ for row_idx, row in enumerate(rows):
         </div>
     </div>
     <p class="card-desc">{app['desc']}</p>
-    <a class="card-btn" href="{app['url']}" target="_blank" style="background:{app['color']};box-shadow:0 4px 15px -3px {app['glow']}40;">
-        Abrir app →
-    </a>
+    <a class="card-btn" href="{app['url']}" target="_blank">Abrir app &rarr;</a>
     <div class="card-num">{str(num).zfill(2)}</div>
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="footer">Construido con Streamlit · Valeria Moreno · 2025</div>', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class="footer-wrap">
+    <div class="footer-line"></div>
+    <p class="footer-text">Construido con &#10084;&#65039; usando Streamlit &nbsp;&middot;&nbsp; <span class="footer-name">Valeria Moreno</span> &nbsp;&middot;&nbsp; 2025</p>
+</div>
+""", unsafe_allow_html=True)
