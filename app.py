@@ -12,7 +12,6 @@ APPS = [
     {"nombre": "Control por Voz", "desc": "Interfaces multimodales que transcriben comandos de voz en tiempo real usando reconocimiento automatico.", "url": "https://ctrlvoicesrd.streamlit.app", "emoji": "🎙️", "tag": "Audio · Speech"},
     {"nombre": "Tablero Inteligente", "desc": "Dibuja un boceto en el panel y la IA lo interpreta, genera descripciones e historias sobre el dibujo.", "url": "https://drawrecogsrd.streamlit.app", "emoji": "🎨", "tag": "Vision · GPT-4"},
     {"nombre": "Reconocimiento de Digitos", "desc": "Red neuronal artificial que reconoce digitos escritos a mano dibujados directamente en el canvas.", "url": "https://handwsrd.streamlit.app", "emoji": "✍️", "tag": "RNA · MNIST"},
-    {"nombre": "Valen o Salo?", "desc": "Detector de gestos y reconocimiento facial que identifica si la persona en camara es Valentina o Salome.", "url": "https://detecgestossrd.streamlit.app", "emoji": "👁️", "tag": "Vision · Face ID"},
     {"nombre": "OCR + Audio", "desc": "Reconocimiento optico de caracteres que extrae texto de imagenes con camara o archivo y lo convierte a audio.", "url": "https://ocraudiord.streamlit.app", "emoji": "🔊", "tag": "OCR · TTS"},
     {"nombre": "Reconocimiento de Identidad", "desc": "OCR aplicado a documentos de identidad, extrae y organiza la informacion de cedulas colombianas.", "url": "https://ocrsalorivero.streamlit.app", "emoji": "🪪", "tag": "OCR · Docs"},
     {"nombre": "MQTT Control Dashboard", "desc": "Dashboard web para controlar dispositivos IoT en tiempo real mediante el protocolo MQTT.", "url": "https://sendcmqttsalorivero.streamlit.app", "emoji": "📡", "tag": "IoT · MQTT"},
@@ -32,7 +31,7 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif; backgroun
 .stApp { background: #FFFBEB; }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0 !important; max-width: 100% !important; }
-.hero-wrap { position: relative; background: linear-gradient(135deg, #1C1917 0%, #2C2520 60%, #1C1917 100%); padding: 4rem 2rem 5.5rem; overflow: hidden; text-align: center; }
+.hero-wrap { position: relative; background: linear-gradient(135deg, #1C1917 0%, #2C2520 60%, #1C1917 100%); padding: 3.5rem 2rem 5rem; overflow: hidden; text-align: center; }
 .hero-dots { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(rgba(251,191,36,0.13) 1.5px, transparent 1.5px); background-size: 30px 30px; pointer-events: none; }
 .hero-glow-left { position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(251,191,36,0.16) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
 .hero-glow-right { position: absolute; bottom: -120px; right: -80px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(234,179,8,0.13) 0%, transparent 65%); border-radius: 50%; pointer-events: none; }
@@ -41,33 +40,32 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif; backgroun
 .hero h1 .yellow { background: linear-gradient(90deg, #FBBF24 0%, #FDE68A 50%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-sub { font-size: 1rem; color: #A8A29E; margin-top: 0.6rem; position: relative; z-index: 2; }
 .hero-stats { display: inline-flex; margin-top: 2.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; position: relative; z-index: 2; }
-.stat-box { padding: 1.1rem 2.2rem; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
+.stat-box { padding: 1rem 2rem; border-right: 1px solid rgba(255,255,255,0.08); text-align: center; }
 .stat-box:last-child { border-right: none; }
 .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: #FBBF24; display: block; line-height: 1; }
 .stat-label { font-size: 0.65rem; color: #78716C; text-transform: uppercase; letter-spacing: 0.14em; margin-top: 0.3rem; display: block; }
 .wave-divider { line-height: 0; background: #1C1917; }
 .wave-divider svg { display: block; width: 100%; }
-.section-wrap { background: #FFFBEB; padding: 3rem 1.5rem 4rem; position: relative; }
+.section-wrap { background: #FFFBEB; padding: 2.5rem 2rem 3.5rem; position: relative; }
 .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(251,191,36,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(251,191,36,0.07) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-.section-title { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.25em; text-align: center; margin-bottom: 2.5rem; position: relative; z-index: 1; }
-.card { background: #fff; border: 1.5px solid #FEF3C7; border-radius: 20px; padding: 1.6rem; position: relative; overflow: hidden; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s, border-color 0.3s; height: 100%; }
-.card::after { content: ''; position: absolute; top: -50px; right: -50px; width: 140px; height: 140px; background: radial-gradient(circle, #FFFDE7 0%, transparent 70%); pointer-events: none; }
-.card:hover { transform: translateY(-8px) scale(1.018); box-shadow: 0 24px 55px -10px rgba(217,119,6,0.2); border-color: #FCD34D; }
-.card-accent { height: 4px; border-radius: 99px; background: linear-gradient(90deg, #FBBF24, #FDE68A, #F59E0B, #FBBF24); background-size: 200% 100%; animation: shimmer 3s linear infinite; margin-bottom: 1.3rem; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700; color: #B45309; text-transform: uppercase; letter-spacing: 0.25em; text-align: center; margin-bottom: 2rem; position: relative; z-index: 1; }
+.card { background: #fff; border: 1.5px solid #FEF3C7; border-radius: 16px; padding: 1.2rem 1.3rem 1.4rem; position: relative; overflow: hidden; transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s, border-color 0.3s; }
+.card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 20px 45px -10px rgba(217,119,6,0.18); border-color: #FCD34D; }
+.card-accent { height: 3px; border-radius: 99px; background: linear-gradient(90deg, #FBBF24, #FDE68A, #F59E0B, #FBBF24); background-size: 200% 100%; animation: shimmer 3s linear infinite; margin-bottom: 1rem; }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-.card-header { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.6rem; }
-.card-emoji { font-size: 2.2rem; line-height: 1; flex-shrink: 0; }
-.card-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 800; color: #1C1917; margin: 0 0 0.35rem; line-height: 1.2; }
-.card-tag { display: inline-block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #92400E; background: #FEF3C7; border: 1px solid #FDE68A; padding: 0.18rem 0.6rem; border-radius: 99px; }
-.card-desc { font-size: 0.845rem; color: #78716C; line-height: 1.65; margin: 0.8rem 0 1.4rem; }
-.card-btn { display: inline-flex; align-items: center; gap: 0.45rem; background: #1C1917; color: #FBBF24 !important; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 700; text-decoration: none !important; padding: 0.52rem 1.2rem; border-radius: 99px; transition: background 0.2s, transform 0.15s; }
-.card-btn:hover { background: #292524; transform: scale(1.05); color: #FCD34D !important; text-decoration: none !important; }
-.card-num { position: absolute; bottom: 0.6rem; right: 1rem; font-family: 'Syne', sans-serif; font-size: 3.2rem; font-weight: 800; color: rgba(251,191,36,0.07); line-height: 1; user-select: none; }
-.footer-wrap { background: #1C1917; padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
-.footer-line { height: 3px; background: linear-gradient(90deg, transparent 0%, #FBBF24 30%, #FDE68A 50%, #FBBF24 70%, transparent 100%); margin-bottom: 1.5rem; }
+.card-header { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.5rem; }
+.card-emoji { font-size: 1.8rem; line-height: 1; flex-shrink: 0; }
+.card-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 800; color: #1C1917; margin: 0 0 0.28rem; line-height: 1.2; }
+.card-tag { display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #92400E; background: #FEF3C7; border: 1px solid #FDE68A; padding: 0.15rem 0.55rem; border-radius: 99px; }
+.card-desc { font-size: 0.8rem; color: #78716C; line-height: 1.6; margin: 0.65rem 0 1.1rem; }
+.card-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: #1C1917; color: #FBBF24 !important; font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; font-weight: 700; text-decoration: none !important; padding: 0.45rem 1.05rem; border-radius: 99px; transition: background 0.2s, transform 0.15s; }
+.card-btn:hover { background: #292524; transform: scale(1.04); color: #FCD34D !important; text-decoration: none !important; }
+.card-num { position: absolute; bottom: 0.5rem; right: 0.9rem; font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; color: rgba(251,191,36,0.06); line-height: 1; user-select: none; }
+.footer-wrap { background: #1C1917; padding: 2rem; text-align: center; }
+.footer-line { height: 3px; background: linear-gradient(90deg, transparent 0%, #FBBF24 30%, #FDE68A 50%, #FBBF24 70%, transparent 100%); margin-bottom: 1.2rem; }
 .footer-text { color: #57534E; font-size: 0.82rem; margin: 0; }
 .footer-name { color: #FBBF24; font-weight: 700; }
-[data-testid="column"] { padding: 0.45rem !important; }
+[data-testid="column"] { padding: 0.4rem !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -80,7 +78,7 @@ st.markdown("""
     <h1>Valeria <span class="yellow">Moreno</span></h1>
     <p class="hero-sub">Aplicaciones construidas con Python, Streamlit y modelos de inteligencia artificial</p>
     <div class="hero-stats">
-        <div class="stat-box"><span class="stat-num">15</span><span class="stat-label">Proyectos</span></div>
+        <div class="stat-box"><span class="stat-num">14</span><span class="stat-label">Proyectos</span></div>
         <div class="stat-box"><span class="stat-num">5</span><span class="stat-label">Tecnologias</span></div>
         <div class="stat-box"><span class="stat-num">1</span><span class="stat-label">Semestre</span></div>
     </div>
@@ -98,7 +96,7 @@ cols_per_row = 3
 rows = [APPS[i:i+cols_per_row] for i in range(0, len(APPS), cols_per_row)]
 
 for row_idx, row in enumerate(rows):
-    cols = st.columns(cols_per_row, gap="small")
+    cols = st.columns(cols_per_row, gap="medium")
     for col_idx, (col, app) in enumerate(zip(cols, row)):
         num = row_idx * cols_per_row + col_idx + 1
         with col:
